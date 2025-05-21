@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "index.html" %}
+
+
+{% block main_content %}
+
+{% load bootstrap_icons %}
+
+<div class="container">
+    <div class="row">
+        <!-- cette section sera uniquement visible pour les utilasateur: type bibliothécaire avec une autorisation -->
+        {% if perms.bibliotheque.add_cd %}
+        <div class="col-md-12">
+            <a href="{% url 'ajouter-cd'%}" class="btn btn-success float-right">{% bs_icon 'plus' %} Ajouter un CD</a>
+        </div>
+        {% endif %}
+        <div class="container-flex text-center justify-content-center align-items-center">
+            <div class="row" style="margin-top: 20px;">
+                <div class="container" style="overflow-y: auto;">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <td>Nom</td>
+                                <td>Artiste</td>
+                                <td>Disponibilité</td>
+                                {% if perms.bibliotheque.change_cd or perms.bibliotheque.delete_cd %}
+                                <td>Action</td>
+                                {% endif %}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for cd in cds %}
+                                <tr>
+                                    <td>{{cd.nom}}</td>
+                                    <td>{{cd.artiste}}</td>
+                                    <td>{{cd.disponible}}</td>
+                                    {% if perms.bibliotheque.change_cd or perms.bibliotheque.delete_cd %}
+                                    <td>
+                                        <a href="{% url 'update-cd' cd.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
+                                        <a href="{% url 'delete-cd' cd.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                        
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
