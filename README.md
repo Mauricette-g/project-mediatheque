@@ -10,7 +10,7 @@ L'application est déployée sur pythonanywhere : https://mauricette.pythonanywh
 
 * python manage.py startapp bibliotheque 
 
-* python manage.py startapp gestion_mediatheque_ir
+* python manage.py startapp membre
 
 * python manage.py makemigrations
 
