@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django_bootstrap_icons',
     'bibliotheque.apps.BibliothequeConfig',
-    'membre.apps.MembreConfig'
+    #'membre.apps.MembreConfig'
 ]
 
 MIDDLEWARE = [
@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.dirname(__file__)+"/../bibliotheque/templates",
-                 os.path.dirname(__file__)+"/../membre/templates"],
+         os.path.dirname(__file__)+"/../bibliotheque/static"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -70,6 +70,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = 'mediatheque.wsgi.application'
 
