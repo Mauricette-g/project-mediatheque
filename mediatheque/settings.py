@@ -59,7 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.dirname(__file__)+"/../bibliotheque/templates",
-                 os.path.dirname(__file__)+"/../membre/templates_bis"],
+                 os.path.dirname(__file__)+"/../membre/templates"],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
