@@ -6,7 +6,7 @@
 {% load bootstrap_icons %}
 
 <div class="container-flex">
-    <h1 class="text-center"> Bienvenue à la Bibliothèque numérique</h1>
+    <h1 class="py-1 text-center"> Bienvenue à la Bibliothèque numérique</h1>
 
     <!-- cette section sera uniquement visible pour les utilasateur: type bibliothécaire -->
     {% if perms.bibliotheque.add_membre or perms.bibliotheque.change_membre %}
@@ -48,12 +48,54 @@
     </div>
     <!-- cette section sera uniquement visible les visiteurs: type membre -->
     {% else %}
-    <div class="container">
+    <div class="py-2 text-center container">
+        <p> Envie de vous évader? Trouvez tous les médias et jeux de plateau disponible dans notre bibliothèque. 
+            Les médias peuvent être empruntés. N'hésitez pas à les rendre dans les délais pour continuer de bénéficier d'autres emprunts.
+        </p>
+        <!--
         <ul class="list">
             <li><a href="{% url 'livres'%}">Livres</a></li>
             <li><a href="{% url 'dvds'%}">DVDs</a></li>
             <li><a href="{% url 'cds'%}">CDs</a></li>
         </ul>
+        -->
+        <div class="py-2">
+            {% load static %}
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="/livres"><img src="{% static 'images/books.jpg' %}" class="card-img-top" alt="livre-mediatheque"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Livres</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="/dvds"><img src="{% static 'images/dvd.jpg' %}" class="card-img-top" alt="dvd-mediatheque"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">DVDs</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="/cds"><img src="{% static 'images/cd.jpg' %}" class="card-img-top" alt="cd-mediatheque"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">CDs</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                        <a href="/jeux"><img src="{% static 'images/chess.jpg' %}" class="card-img-top" alt="jeu-mediatheque"></a>
+                        <div class="card-body">
+                            <h5 class="card-title">Jeu de plateau</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     {% endif %}
 
