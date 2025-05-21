@@ -1,6 +1,6 @@
 # Projet médiathèque
 
-L'application est déployée sur pythonanywhere : https://mauricette.pythonanywhere.com/bibliotheque/
+L'application est déployée sur pythonanywhere : https://maurimediatheque.pythonanywhere.com/
 
 ## Main features
 
