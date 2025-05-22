@@ -5,6 +5,7 @@ L'application est déployée sur pythonanywhere : https://maurimediatheque.pytho
 ## Main features
 
  $ pip install django
+ $ pip install django-bootstrap-icons
 
 * python -m django startproject mediatheque  
 
