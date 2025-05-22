@@ -124,14 +124,14 @@ def jeux(request):
 
 class AjoutJeu(PermissionRequiredMixin,CreateView):
     model = JeuDePlateau
-    form_class=CDForm
+    form_class=JeuDePlateauForm
     template_name="ajouter_jeu.html"
     success_url = reverse_lazy('jeux')
     permission_required = 'bibliotheque.view_JeuDePlateau'
  
 class UpdateJeu(PermissionRequiredMixin,UpdateView):
     model = JeuDePlateau
-    form_class=CDForm
+    form_class=JeuDePlateauForm
     template_name="update_jeu.html"
     success_url = 'jeux'
     permission_required = 'bibliotheque.change_jeu'

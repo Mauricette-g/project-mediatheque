@@ -1,12 +1,21 @@
 from django.db import models
 # Create your models here.
 
+# Classe pour les membres
+class Membre(models.Model):
+    name = models.CharField(max_length=255)
+    bloque = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.name
+
+
 # Classe parente pour les médias
 class Media(models.Model):
     nom = models.CharField(max_length=255)
     disponible = models.BooleanField(default=True)
-    #date_emprunt = models.DateField(null=True, blank=True)
-    #emprunteur = models.ForeignKey('Membre', null=True, blank=True, on_delete=models.SET_NULL)
+    date_emprunt = models.DateField(null=True, blank=True)
+    emprunteur = models.ForeignKey('Membre', null=True, blank=True, on_delete=models.SET_NULL)
 
     class Meta:
         abstract = True
@@ -33,13 +42,6 @@ class JeuDePlateau(models.Model):
     createur = models.CharField(max_length=255)
 
 
-# Classe pour les membres
-class Membre(models.Model):
-    name = models.CharField(max_length=255)
-    bloque = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.name
 
 # Classe pour gérer les emprunts
 class Emprunt(models.Model):
