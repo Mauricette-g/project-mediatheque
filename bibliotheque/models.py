@@ -40,29 +40,6 @@ class CD(Media):
 class JeuDePlateau(models.Model):
     name = models.CharField(max_length=255)
     createur = models.CharField(max_length=255)
-
-
-
-# Classe pour gérer les emprunts
-class Emprunt(models.Model):
-    livre = models.ForeignKey('Livre', null=True, blank=True, on_delete=models.CASCADE)
-    dvd = models.ForeignKey('DVD', null=True, blank=True, on_delete=models.CASCADE)
-    cd = models.ForeignKey('CD', null=True, blank=True, on_delete=models.CASCADE)
-    membre = models.ForeignKey('Membre', on_delete=models.CASCADE)
-    date_emprunt = models.DateField(auto_now_add=True)
-    date_retour = models.DateField()
-
-    def save(self, *args, **kwargs):
-        # Vérification des règles métiers avant d'enregistrer
-        media = self.livre or self.dvd or self.cd
-        if media and not media.disponible:
-            raise ValueError("Ce média n'est pas disponible pour l'emprunt.")
-
-        if Emprunt.objects.filter(membre=self.membre, date_retour__gte=self.date_emprunt).count() >= 3:
-            raise ValueError("Le membre a déjà 3 emprunts actifs.")
-
-        super().save(*args, **kwargs)
-
     def __str__(self):
-        return f"{self.membre.name} - {self.livre or self.dvd or self.cd}"
+        return self.name
 
