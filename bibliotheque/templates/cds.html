@@ -24,6 +24,8 @@
                                 <td>Artiste</td>
                                 <td>Disponibilité</td>
                                 {% if perms.bibliotheque.change_cd or perms.bibliotheque.delete_cd %}
+                                <td>Date emprunt</td>
+                                <td>Membre emprunteur</td>
                                 <td>Action</td>
                                 {% endif %}
                             </tr>
@@ -35,6 +37,8 @@
                                     <td>{{cd.artiste}}</td>
                                     <td>{{cd.disponible}}</td>
                                     {% if perms.bibliotheque.change_cd or perms.bibliotheque.delete_cd %}
+                                    <td>{{cd.date_emprunt}}</td>
+                                    <td>{{cd.emprunteur}}</td>
                                     <td>
                                         <a href="{% url 'update-cd' cd.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
                                         <a href="{% url 'delete-cd' cd.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>

@@ -34,8 +34,8 @@
                                     <td>{{jeu.createur}}</td>
                                     {% if perms.bibliotheque.change_jeu or perms.bibliotheque.delete_jeu %}
                                     <td>
-                                        <a href="{% url 'update-jeu' jeux.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
-                                        <a href="{% url 'delete-jeu' jeux.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>
+                                        <a href="{% url 'update-jeu' jeu.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
+                                        <a href="{% url 'delete-jeu' jeu.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>
                                     </td>
                                     {% endif %}
                                 </tr>
