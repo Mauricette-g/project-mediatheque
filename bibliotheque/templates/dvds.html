@@ -25,6 +25,8 @@
                                 <td>Réalisateur</td>
                                 <td>Disponibilité</td>
                                 {% if perms.bibliotheque.change_dvd or perms.bibliotheque.delete_dvd  %}
+                                <td>Date emprunt</td>
+                                <td>Membre emprunteur</td>
                                 <td>Action</td>
                                 {% endif %}
                             </tr>
@@ -36,6 +38,8 @@
                                     <td>{{dvd.realisateur}}</td>
                                     <td>{{dvd.disponible}}</td>
                                     {% if perms.bibliotheque.change_dvd or perms.bibliotheque.delete_dvd  %}
+                                    <td>{{dvd.date_emprunt}}</td>
+                                    <td>{{dvd.emprunteur}}</td>
                                     <td>
                                         <a href="{% url 'update-dvd' dvd.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
                                         <a href="{% url 'delete-dvd' dvd.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>

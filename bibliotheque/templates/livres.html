@@ -24,6 +24,8 @@
                                 <td>Auteur</td>
                                 <td>Disponibilité</td>
                                 {% if perms.bibliotheque.change_livre or perms.bibliotheque.delete_livre %}
+                                <td>Date emprunt</td>
+                                <td>Membre emprunteur</td>
                                 <td>Action</td>
                                 {% endif %}
                             </tr>
@@ -35,6 +37,8 @@
                                     <td>{{livre.auteur}}</td>
                                     <td>{{livre.disponible}}</td>
                                     {% if perms.bibliotheque.change_livre or perms.bibliotheque.delete_livre  %}
+                                    <td>{{livre.date_emprunt}}</td>
+                                    <td>{{livre.emprunteur}}</td>
                                     <td>
                                         <a href="{% url 'update-livre' livre.id%}" class="btn btn-info">{% bs_icon 'pencil' %}</a>
                                         <a href="{% url 'delete-livre' livre.id%}" class="btn btn-danger">{% bs_icon 'trash' %}</a>
